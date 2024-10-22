@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.header {
+    display: flex;
+    justify-content: start;
+    /*temp*/
+    height: 100px;
+}
+.footer {
+    display: flex;
+    justify-content: start;
+    /*temp*/
+    height: 100px;
+}
+.calc_box {
+    display: flex;
+    flex-direction: column;
+    /*temp val*/
+    padding: 24px;
+    margin: 24px;
+}
+.screen {
+    background-color: darkgreen;
+    /*temp, also IDLE ANIMATION?>???*/
+    padding: 12px;
+    height: 100px;
+}
+.row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.row2, .row3, .row4, .row5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
