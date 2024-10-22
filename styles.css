@@ -29,15 +29,25 @@ body {
 }
 .calc_box {
     background-color: darkslategray;
+    width: 750px;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: space-between;
+    align-self: center;
+    flex: 1 0 300px;
     /*temp val*/
     padding: 24px;
     margin: 24px;
+    gap: 16px;
 }
 .screen {
     background-color: darkgreen;
+    color: whitesmoke;
+    font-size: 50px;
+    font-weight: 800;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     /*temp, also IDLE ANIMATION?>???*/
     padding: 12px;
     height: 100px;
@@ -51,4 +61,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+button {
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    /*temp*/
+    min-width: 160pxs;
+    padding: 8px;
+    border-radius: 10%;
 }
