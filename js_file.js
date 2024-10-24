@@ -41,6 +41,7 @@ function operate(operator, num1, num2) {    // call when = button clicked, only 
     return result; // return final result
 }
 function intializeButtonsAndDisplay() { // void, displays on screen and updates array of numbers
+    const previous_screen = document.querySelector(".previous_screen");
     const screen = document.querySelector(".screen");
     const clearButton = document.querySelector(".clear");
     const equalButton = document.querySelector(".equal");
@@ -50,6 +51,8 @@ function intializeButtonsAndDisplay() { // void, displays on screen and updates 
         recordedInput.length = 0;
     });
     equalButton.addEventListener("click", () => {   // performs all calculations on screen, leaves 1 total value on screen/recorded.numbers
+        previous_screen.textContent = screen.textContent; // update previous screen
+        
         let result;
         let numbers = [], numValue = "";
         for(let i = 0; i < recordedInput.length; ++i) { // filter for numbers
