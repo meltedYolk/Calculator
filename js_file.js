@@ -38,7 +38,6 @@ function operate(operator, num1, num2) {    // call when = button clicked, only 
             console.log("operate() broke!");
     }
 
-    inputNumbers.unshift(result);   // input result of operations back into recorded values
     return result; // return final result
 }
 function intializeButtonsAndDisplay() { // void, displays on screen and updates array of numbers
@@ -47,11 +46,11 @@ function intializeButtonsAndDisplay() { // void, displays on screen and updates 
     const equalButton = document.querySelector(".equal");
     const calcButtons = document.querySelectorAll(".calc_button");
     clearButton.addEventListener("click", () => {   // clear erases screen content & erases recorded input
-        screen.textCosntent = "";
+        screen.textContent = "";
         recordedInput.length = 0;
     });
     equalButton.addEventListener("click", () => {   // performs all calculations on screen, leaves 1 total value on screen/recorded.numbers
-        let operator, num1, num2, result;
+        let result;
         let numbers = [], numValue = "";
         for(let i = 0; i < recordedInput.length; ++i) { // filter for numbers
             if(operators.includes(recordedInput[i])) {
@@ -75,7 +74,17 @@ function intializeButtonsAndDisplay() { // void, displays on screen and updates 
         
         let operations = recordedInput.filter((val) => operators.includes(val));
 
+        // calc final result
+        result = operations.reduce((accumulator, operator, index) => {  // accumulator, currentValue, index
+            if(index === 0)
+                return operate(operator, numbers[0], numbers[1]);    
+            else
+                return operate(operator, accumulator, numbers[index+1]);
+        }, 0);
+
         screen.textContent = result; // update display
+        recordedInput.length = 0;    // update recorded input
+        recordedInput.push(result);
     });
     calcButtons.forEach((calcBtn) => {  
         calcBtn.addEventListener("click", () => {
